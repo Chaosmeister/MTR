@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\MoveToReleaseProject\Controller;
+namespace Kanboard\Plugin\MTR\Controller;
 
 use Kanboard\Controller\BaseController;
 
