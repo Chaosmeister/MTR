@@ -15,7 +15,7 @@ class MtrController extends BaseController
             throw new AccessForbiddenException();
         }
 
-        if ($this->taskProjectMoveModel->moveToProject($task['id'],4)) {
+        if ($this->taskProjectMoveModel->moveToProject($task['id'], 11)) {
             $this->flash->success(t('Task updated successfully.'));
             return $this->response->redirect($this->helper->url->to('TaskViewController', 'show', array('task_id' => $task['id'])));
         }
