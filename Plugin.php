@@ -8,15 +8,15 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->hook->attach("template:task:sidebar:after-duplicate-task", "MTR:movetorelease");
-        $this->template->hook->attach("template:task:dropdown:after-duplicate-task", "MTR:movetorelease");
+        $this->template->hook->attach("template:task:sidebar:after-duplicate-task", "MTR:MoveToRelease");
+        $this->template->hook->attach("template:task:dropdown:after-duplicate-task", "MTR:MoveToRelease");
         
-        $this->route->addRoute('MTR/move', 'mtrcontroller', 'move', 'MTR');
+        $this->route->addRoute('MTR/move', 'MtrController', 'move', 'MTR');
     }
 
     public function getPluginName()
     {
-        return 'EnableAttachmentRenaming';
+        return 'Move to Release';
     }
 
     public function getPluginDescription()
@@ -36,7 +36,7 @@ class Plugin extends Base
     
     public function getPluginHomepage()
     {
-        return "https://github.com/Chaosmeister/MTRP";
+        return "https://github.com/Chaosmeister/MTR";
     }
     
     public function getCompatibleVersion()

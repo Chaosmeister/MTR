@@ -5,7 +5,7 @@ namespace Kanboard\Plugin\MTR\Controller;
 use Kanboard\Controller\BaseController;
 
 
-class mtrcontroller extends BaseController
+class MtrController extends BaseController
 {
     const TargetProjectId = 4;
 
