@@ -7,7 +7,7 @@ use Kanboard\Controller\BaseController;
 
 class MtrController extends BaseController
 {
-    const TargetProjectId = 4;
+    const TargetProjectId = 11;
 
     public function move()
     {
