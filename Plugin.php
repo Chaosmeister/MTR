@@ -11,7 +11,7 @@ class Plugin extends Base
         $this->template->hook->attach("template:task:sidebar:after-duplicate-task", "MTR:movetorelease");
         $this->template->hook->attach("template:task:dropdown:after-duplicate-task", "MTR:movetorelease");
         
-        $this->route->addRoute('MTR/move', 'MtrController', 'move', 'MTR');
+        $this->route->addRoute('MTR/move', 'mtrcontroller', 'move', 'MTR');
     }
 
     public function getPluginName()
