@@ -22,4 +22,18 @@ class MtrController extends BaseController
             return $this->response->redirect($this->helper->url->to('BoardViewController', 'show', array('project_id' => $currentproject)));
         }
     }
+
+    public function moveall()
+    {
+        $tasks = $this->taskFinderModel->getAll(1);
+
+        foreach ($tasks as $task) {
+            if ($task['column_id'] == 4) {
+                if ($task['id'] != 482)
+                $this->taskProjectMoveModel->moveToProject($task['id'], self::TargetProjectId);
+            }
+        }
+
+        return $this->response->redirect($this->helper->url->to('BoardViewController', 'show', array('project_id' => '1')));
+    }
 }

@@ -10,8 +10,7 @@ class Plugin extends Base
     {
         $this->template->hook->attach("template:task:sidebar:after-duplicate-task", "MTR:MoveToRelease");
         $this->template->hook->attach("template:task:dropdown:after-duplicate-task", "MTR:MoveToRelease");
-        
-        $this->route->addRoute('MTR/move', 'MtrController', 'move', 'MTR');
+        $this->template->hook->attach("template:board:column:header", "MTR:MoveAllToRelease");
     }
 
     public function getPluginName()
