@@ -1,23 +1,25 @@
 <?php
 
-namespace Kanboard\Plugin\MoveToReleaseProject\Controller;
+namespace Kanboard\Plugin\MTR\Controller;
 
 use Kanboard\Controller\BaseController;
 
-class MtrController extends BaseController
+
+class mtrcontroller extends BaseController
 {
-    public function moveToRelease()
+    const TargetProjectId = 4;
+
+    public function move()
     {
         $task = $this->getTask();
-        $values = $this->request->getValues();
-        
-        if (!$this->projectPermissionModel->isUserAllowed($values['project_id'], $this->userSession->getId())) {
+        $currentproject = $task['project_id'];
+
+        if (!$this->projectPermissionModel->isUserAllowed(self::TargetProjectId, $this->userSession->getId())) {
             throw new AccessForbiddenException();
         }
 
-        if ($this->taskProjectMoveModel->moveToProject($task['id'],4)) {
-            $this->flash->success(t('Task updated successfully.'));
-            return $this->response->redirect($this->helper->url->to('TaskViewController', 'show', array('task_id' => $task['id'])));
+        if ($this->taskProjectMoveModel->moveToProject($task['id'], self::TargetProjectId)) {
+            return $this->response->redirect($this->helper->url->to('BoardViewController', 'show', array('project_id' => $currentproject)));
         }
     }
 }

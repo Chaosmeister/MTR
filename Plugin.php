@@ -8,7 +8,8 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->template->hook->attach("template:task:sidebar:after-duplicate-task", "MTR:MoveToRelease");
+        $this->template->hook->attach("template:task:sidebar:after-duplicate-task", "MTR:movetorelease");
+        $this->template->hook->attach("template:task:dropdown:after-duplicate-task", "MTR:movetorelease");
         
         $this->route->addRoute('MTR/move', 'MtrController', 'move', 'MTR');
     }
